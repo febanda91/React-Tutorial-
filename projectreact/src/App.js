@@ -1,6 +1,11 @@
 import React, {useState} from 'react'
 import './App.css';
 import Tweet from './tweet'
+import MovieList from './MovieList'
+import Nav from './Nav'
+import AddMovie from './AddMovie';
+import {MovieProvider} from './MovieContext'
+
 
 
 function App() {
@@ -19,20 +24,22 @@ function App() {
   //   setRed(!isRed)
   // }
 
-  const [users, setUsers] = useState([
-    {name: 'Frankie', message:'Hello there'},
-    {name: 'Ted', message: 'I am john snow'},
-    {name:'Jon', message: 'More followers'}
+  // const [users, setUsers] = useState([
+  //   {name: 'Frankie', message:'Hello there'},
+  //   {name: 'Ted', message: 'I am john snow'},
+  //   {name:'Jon', message: 'More followers'}
 
-  ])
+  // ])
 
 
   return (
+    <MovieProvider>
     <div className="app">
-      {users.map(user => (
-        <Tweet name={user.name} message={user.message}/>
-      ))}
+      <Nav/>
+      <MovieList/>
+      <AddMovie/>
     </div>
+    </MovieProvider>
   );
 }
 
